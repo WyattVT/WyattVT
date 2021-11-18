@@ -1,0 +1,33 @@
+from djitellopy import Tello
+from time import sleep
+t = Tello()
+t.connect()
+t.takeoff
+ft = 3.67
+
+t.send_rc_control(0, 0, 50, 0)
+sleep(60 * 0.85)
+t.send_rc_control(0, 50, 0, 0)
+sleep(50 * ft)
+t.rotate_counter_clockwise(90)
+sleep(1)
+t.send_rc_control(0, 50, 0, 0)
+sleep(60 * ft)
+t.rotate_clockwise(90)
+sleep(1)
+t.send_rc_control(0, 0, -50, 0)
+sleep(30 * 0.85)
+t.send_rc_control(0, 50, 0, 0)
+sleep(30 * ft)
+t.rotate_clockwise(90)
+sleep(1)
+t.send_rc_control(0, 0, 50, 0)
+sleep(10 * 0.85)
+t.send_rc_control(0, 50, 0, 0)
+sleep(30 * ft)
+t.rotate_counter_clockwise(90)
+sleep(1)
+t.send_rc_control(0, 50, 0, 0)
+sleep(60 * ft)
+
+t.land
